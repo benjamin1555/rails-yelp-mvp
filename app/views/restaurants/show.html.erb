@@ -1,0 +1,15 @@
+<div class="card" style="width: 40rem; margin: 20px">
+  <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h3 class="card-title"><%= @restaurant.name %></h3>
+    <p class="card-text"><%= @restaurant.category.capitalize %></p>
+    <p class="card-text"><%= @restaurant.address %>
+    Tel: <%= @restaurant.phone_number %></p>
+    <h5 class="card-text">Reviews</h5>
+    <% @restaurant.reviews.each do |review| %>
+      <p><%= "#{review.content} - rating: #{review.rating}/5" %></p>
+    <% end %>
+    <%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class:"btn btn-primary", style:"margin-top:5px;" %>
+    <%= link_to 'Restaurants list', restaurants_path, class:"btn btn-primary", style:"margin-top:5px;" %>
+  </div>
+</div>
